@@ -128,7 +128,7 @@ function userController(User) {
         console.log(newFileSizeInBytes);
 
         return res.status(200).json({
-          link: `http://localhost:4000/${file.filename}`,
+          link: `https://backend.tinierpng.com/${file.filename}`,
           originalFileSizeInBytes: originalFileSizeInBytes,
           newFileSizeInBytes: newFileSizeInBytes,
           isCompressing: false,
