@@ -11,7 +11,7 @@ app.use(express.static("photos"));
 app.use(express.static("outcome"));
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "http://localhost:3003");
+  res.header("Access-Control-Allow-Origin", "https://tinierpng.com");
   res.header(
     "Access-Control-Allow-Headers",
     "Origin, X-Requested-With, Content-Type, Accept"
@@ -22,7 +22,7 @@ app.use(function(req, res, next) {
 
 app.use(
   cors({
-    origin: ["http://localhost:3000"], // restrict calls to those this address
+    origin: ["http://localhost:3003", "https://tinierpng.com/"], // restrict calls to those this address
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE" // allow all requests
   })
 );
