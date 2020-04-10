@@ -130,6 +130,7 @@ function userController(User) {
         return res.status(200).json({
           link: `https://backend.tinierpng.com/${file.filename}`,
           originalFileSizeInBytes: originalFileSizeInBytes,
+          filename: file.filename,
           newFileSizeInBytes: newFileSizeInBytes,
           isCompressing: false,
           finished: true
@@ -138,7 +139,12 @@ function userController(User) {
     });
   };
 
-  return { Register, Login, Profile, Photo };
+  function Download(req, res) {
+    const filename = req.params.fileName;
+    console.log(`ready to download ${filename}`);
+  }
+
+  return { Register, Login, Profile, Photo, Download };
 }
 
 module.exports = userController;
