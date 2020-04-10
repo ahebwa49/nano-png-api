@@ -31,6 +31,7 @@ function routes(User) {
     .post(upload.single("avatar"), controller.Register);
   userRouter.route("/login").post(controller.Login);
   userRouter.route("/profile").get(controller.Profile);
+  userRouter.route("/download/:fileName").get(controller.Download);
   userRouter.route("/photo").post(upload.single("avatar"), controller.Photo);
   return userRouter;
 }
