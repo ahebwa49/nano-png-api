@@ -141,7 +141,17 @@ function userController(User) {
 
   function Download(req, res) {
     const filename = req.params.fileName;
-    console.log(`ready to download ${filename}`);
+
+    return res.download(`./outcome/${filename}`, err => {
+      if (err) {
+        //handle error
+        console.log(err);
+        return;
+      } else {
+        //do something
+        console.log("file has been successfully sent");
+      }
+    });
   }
 
   return { Register, Login, Profile, Photo, Download };
