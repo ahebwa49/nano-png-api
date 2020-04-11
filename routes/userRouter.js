@@ -6,9 +6,14 @@ const storage = multer.diskStorage({
     cb(null, "uploads");
   },
   filename: function(req, file, cb) {
+    let newName;
+    // console.log(file);
     let name = file.originalname;
-    const newName = name.slice(0, name.length - 4);
-    // console.log(newName);
+    if (path.extname(name) === ".jpeg") {
+      newName = name.slice(0, name.length - 5);
+    } else {
+      newName = name.slice(0, name.length - 4);
+    }
 
     // console.log(path.extname(file.originalname));
     cb(null, newName + path.extname(file.originalname));
